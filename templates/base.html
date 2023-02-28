@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.2/css/bulma.min.css">
+
+    <title>{% block title%}{% endblock %}blog</title>
+
+    <style>
+       body {font-family: 'Nunito', sans-serif;};
+        nav.navbar {
+          height: 6rem !important;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+        }
+      </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                <!--<img src="../images/bulma.png" alt="Logo">-->
+                <strong> Blogspot </strong>
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class=" navbar-item">
+                        <div class="control has-icons-left">
+                        <input class="input is-rounded" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                            <i class="fa fa-search"></i>
+                        </span>
+                        </div>
+                    </div>
+                <a class="navbar-item is-active is-size-5 has-text-weight-semibold">
+                    Home
+                </a>
+                <a class="navbar-item is-size-5 has-text-weight-semibold">
+                    Examples
+                </a>
+                <a class="navbar-item is-size-5 has-text-weight-semibold">
+                    Features
+                </a>
+                </div>
+            </div>
+        </div>
+    </nav> 
+      <hr>
+
+        <section class="section">
+            <div class="container">
+                {% block content%}
+
+                {% endblock%}
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                copyright (c) 2023 - Blog Spot
+              </p>
+            </div>
+          </footer>
+</body>
+</html>

@@ -2,26 +2,26 @@
 {% block title%} Home -{% endblock %}
 
 {% block content %}
-<section class="hero ">
-    <div class="hero-body">
-      <div class="container">
-            <section class="section">
-                <div class="columns">
-                    <div class="column is-8 is-offset-2">
-                        {% for post in posts %}
-                        <div class="content is-medium">
-                            <h2 class="subtitle is-4">{{ post.created_at }}</h2>
-                            <h1 class="title">{{post.title}}</h1>
-                            <p>{{ post.intro }}</p>
-                            <p>{{ post.body }}</p>
-                        </div>
-                        {% endfor %} 
+<div class="container mt-5 mb-3">
+    {% for post in posts %}
+              <div class="row ">
+            <div class="col-8 mb-4">
+              <div class="card-header text-center">
+                by {{post.author}}
+              </div>
+                <div class="card text-center shadow" >
+                    <img src="/media/{{post.image}}"  class="card-img-top" alt="..." height="300px" >
+                    <div class="card-body">
+                      <h5 class="card-title">{{post.title}} </h5>
+                      <p class="card-text">{{post.body| truncatechars:210}}</p>
+                      <a href="{{post.slug}}" class="btn btn-primary">Read More {% if user.is_superuser %}<a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger mx-4">Delete Blog</a>{% endif %}</a>
                     </div>
-                </div> 
-            </section>
-        </div>
-      
+                    <div class="card-footer">
+      <small class="text-muted">{{post.created_on}}</small>
     </div>
-
-</section>
-{% endblock%}
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}

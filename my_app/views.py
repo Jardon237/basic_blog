@@ -5,6 +5,8 @@ from.forms import Commentsform, Postform
 form = Commentsform
 
 def home(request,  *args, **kwargs):
+
+
     posts = Post.objects.all()
     context = {
         'posts': posts

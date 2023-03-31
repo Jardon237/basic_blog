@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
-{% block title %} home {% endblock title%}
+{% block title %} Home {% endblock title%}
 
 
 
-<body>
-  {% block content %}
-    {% for post in posts%}
-          {{post.title}}<br>
-          {{post.author}} <br><br>
+{% block content %}
+  <div class="container">
+    <div class ="row justify-content-md-center">
+    
+      <div class="col-md-4"></div>
+        {% for post in posts%}
+        
+             <div class="col-md-12"><h1>{{post.title}}</h1></div> 
+              <div class="col-md-12"><p>{{post.content}}</p></div>
+        
+        {% endfor %}
+      </div>
+    </div>  
+  </div>
+      {% endblock content%}
 
-    {% endfor %}
-  {% endblock content%}
-
-</body>
+    

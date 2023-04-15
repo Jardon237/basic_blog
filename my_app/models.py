@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django .utils import timezone
+from django .urls import reverse
+from django.utils import timezone
 
 class Post(models.Model):
 
@@ -11,14 +12,11 @@ class Post(models.Model):
     slug = models.SlugField()
     intro = models.TextField()
     content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add= True)
+    created_at = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, default='draft')
     
-    
-    
-   
-
-
+    def get_absolute_url(self):
+        return reverse('')
     class Meta: 
         ordering = ('-created_at'), 
 

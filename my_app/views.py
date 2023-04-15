@@ -13,9 +13,12 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
-def detail(request, post):
+'''def detail(request, post):
     post = get_object_or_404(Post, slug=post)
     context={
         'post': post
     }
-    return(request, 'detail.html', context)
+    return(request, 'detail.html', context)'''
+
+def about(request):
+    return render(request,'about.html')
